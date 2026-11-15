@@ -1,0 +1,22 @@
+User-agent: *
+Allow: /
+Disallow: /api/admin/
+Disallow: /database.sqlite
+
+# AI Crawlers for GEO (Generative Engine Optimization)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://riwacreatives.in/sitemap.xml
