@@ -5,7 +5,6 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 def create_banner():
     W, H = 1920, 557
     img = Image.new("RGBA", (W, H), (10, 11, 15, 255))
-    draw = ImageDraw.Draw(img)
 
     # 1. Background gradient / ambient glows
     glow_orange = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -86,16 +85,16 @@ def create_banner():
 
     # 7. Subtitle / Mission Statement
     sub_y = 205
-    sub_text = "Building Frontier Tech, AI & Digital Public Infrastructure for 240+ Million Citizens"
+    sub_text = "Building Frontier Tech, AI & Digital Public Goods • Grand Finale on January 11, 2026"
     draw_text(img, (content_x, sub_y), sub_text, font_subtitle, (180, 190, 205, 255))
 
-    # 8. Feature Cards / Value Props (Horizontally arranged)
+    # 8. Feature Cards / Value Props (No incubation; added ₹19,000 rewards/merch; Jan 11 date)
     cards_y = 265
     cards = [
         {"title": "₹45,000+ CASH", "sub": "+ Direct PPO & PPIs", "border": (255, 85, 0, 180), "bg": (255, 85, 0, 25), "text": (255, 120, 40, 255)},
-        {"title": "₹10L SEED BACKING", "sub": "Incubation Term Sheet", "border": (16, 185, 129, 180), "bg": (16, 185, 129, 25), "text": (52, 211, 153, 255)},
+        {"title": "₹19,000+ REWARDS", "sub": "Merch, Swag & Kits", "border": (16, 185, 129, 180), "bg": (16, 185, 129, 25), "text": (52, 211, 153, 255)},
         {"title": "240 BUILDERS", "sub": "60 Shortlisted Squads", "border": (99, 102, 241, 180), "bg": (99, 102, 241, 25), "text": (165, 180, 252, 255)},
-        {"title": "HYBRID FINALE", "sub": "Online + Lucknow & NCR", "border": (234, 179, 8, 180), "bg": (234, 179, 8, 25), "text": (250, 204, 21, 255)}
+        {"title": "JANUARY 11, 2026", "sub": "Offline Finale Day", "border": (234, 179, 8, 180), "bg": (234, 179, 8, 25), "text": (250, 204, 21, 255)}
     ]
 
     card_x = content_x
@@ -126,8 +125,8 @@ def create_banner():
         tx += tw + 14
 
     # Right side: Official URL & Date Badge
-    date_pill_text = "REGISTRATIONS CLOSE DEC 31 • FINALE JAN 10-15, 2026"
-    draw_badge(img, W - 520, meta_y - 2, date_pill_text, bg_color=(255, 255, 255, 12), border_color=(255, 255, 255, 60), text_color=(240, 240, 240, 255), font=font_tag)
+    date_pill_text = "REGISTRATION DEADLINE DEC 31 • HACKATHON DAY JAN 11, 2026"
+    draw_badge(img, W - 530, meta_y - 2, date_pill_text, bg_color=(255, 255, 255, 12), border_color=(255, 255, 255, 60), text_color=(240, 240, 240, 255), font=font_tag)
 
     # 10. Border outline
     border_layer = Image.new("RGBA", (W, H), (0, 0, 0, 0))
@@ -193,9 +192,9 @@ def create_card():
     draw_text(img, (490, 115), "2026", font_main, (255, 110, 30, 255))
 
     # Tagline
-    draw_text(img, (36, 168), "Northern India's Premier Frontier Tech & Open Innovation Sprint", font_body, (180, 190, 205, 255))
+    draw_text(img, (36, 168), "Northern India's Premier Frontier Tech Sprint • Jan 11, 2026", font_body, (180, 190, 205, 255))
 
-    # 3 Stat Cards
+    # 3 Stat Cards (No incubation; added ₹19K merch/rewards)
     stat_y = 210
     stat_w = 194
     stat_h = 75
@@ -203,8 +202,8 @@ def create_card():
     
     stats = [
         {"val": "₹45,000+", "sub": "Cash + Direct PPO/PPI", "border": (255, 85, 0, 180), "bg": (255, 85, 0, 25), "c": (255, 130, 45, 255)},
-        {"val": "₹10L SEED", "sub": "Incubation Term Sheet", "border": (16, 185, 129, 180), "bg": (16, 185, 129, 25), "c": (52, 211, 153, 255)},
-        {"val": "240 FINALISTS", "sub": "60 Squads • In-Person", "border": (99, 102, 241, 180), "bg": (99, 102, 241, 25), "c": (165, 180, 252, 255)}
+        {"val": "₹19,000+", "sub": "Merch, Swag & Kits", "border": (16, 185, 129, 180), "bg": (16, 185, 129, 25), "c": (52, 211, 153, 255)},
+        {"val": "240 FINALISTS", "sub": "60 Squads • Jan 11", "border": (99, 102, 241, 180), "bg": (99, 102, 241, 25), "c": (165, 180, 252, 255)}
     ]
 
     sx = 36
@@ -220,7 +219,7 @@ def create_card():
 
     # Bottom Details
     draw_text(img, (36, 335), "TIMELINE:", font_bold_sm, (140, 150, 170, 255))
-    draw_text(img, (115, 335), "Dec 31 (Reg Deadline)  •  Jan 10–15 (Grand Finale)", font_body, (220, 225, 235, 255))
+    draw_text(img, (115, 335), "Reg Closes Dec 31  •  Hackathon Day: January 11, 2026", font_body, (220, 225, 235, 255))
 
     draw_badge(img, W - 145, 330, "FREE ENTRY", bg_color=(255, 255, 255, 15), border_color=(255, 255, 255, 70), text_color=(255, 255, 255, 255), font=font_kicker)
 
@@ -262,7 +261,6 @@ def draw_badge(img, x, y, text, bg_color, border_color, text_color, font, pad_x=
     overlay = Image.new("RGBA", img.size, (0, 0, 0, 0))
     d = ImageDraw.Draw(overlay)
     
-    # Rounded badge
     radius = bh // 2
     d.rounded_rectangle([x, y, x + bw, y + bh], radius=radius, fill=bg_color, outline=border_color, width=1)
     d.text((x + pad_x, y + pad_y - 1), text, font=font, fill=text_color)
