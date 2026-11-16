@@ -859,22 +859,50 @@ function initMobileNav() {
 
   if (!toggle || !menu) return;
 
-  toggle.addEventListener('click', () => {
-    const isVisible = menu.style.display === 'flex';
-    menu.style.display = isVisible ? 'none' : 'flex';
-    toggle.setAttribute('aria-expanded', !isVisible);
+  function closeMenu() {
+    menu.style.display = 'none';
+    toggle.setAttribute('aria-expanded', 'false');
+  }
 
-    if (!isVisible) {
-      menu.style.flexDirection = 'column';
-      menu.style.position = 'absolute';
-      menu.style.top = '100%';
-      menu.style.left = '0';
-      menu.style.right = '0';
-      menu.style.background = 'rgba(10, 11, 16, 0.98)';
-      menu.style.padding = '20px';
-      menu.style.border = '1px solid rgba(255, 255, 255, 0.1)';
-      menu.style.borderRadius = '16px';
-      menu.style.margin = '8px 16px';
+  function openMenu() {
+    menu.style.display = 'flex';
+    menu.style.flexDirection = 'column';
+    menu.style.position = 'absolute';
+    menu.style.top = '100%';
+    menu.style.left = '0';
+    menu.style.right = '0';
+    menu.style.background = 'rgba(10, 11, 16, 0.98)';
+    menu.style.padding = '16px';
+    menu.style.border = '1px solid rgba(255, 102, 0, 0.3)';
+    menu.style.borderRadius = '16px';
+    menu.style.margin = '8px 12px';
+    menu.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(255, 102, 0, 0.15)';
+    toggle.setAttribute('aria-expanded', 'true');
+  }
+
+  toggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isVisible = menu.style.display === 'flex';
+    if (isVisible) {
+      closeMenu();
+    } else {
+      openMenu();
+    }
+  });
+
+  // Auto-close when clicking any link/button inside the menu
+  menu.querySelectorAll('.nav-item').forEach(item => {
+    item.addEventListener('click', () => {
+      closeMenu();
+    });
+  });
+
+  // Auto-close on click outside
+  document.addEventListener('click', (e) => {
+    if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+      if (menu.style.display === 'flex') {
+        closeMenu();
+      }
     }
   });
 }
