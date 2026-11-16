@@ -45,7 +45,7 @@
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/abhinavkumardixit-lgtm/HACK_UP-X-RIWA.git
+git clone https://github.com/riwacreatives/HACK_UP-X-RIWA.git
 cd HACK_UP-X-RIWA
 ```
 
@@ -79,3 +79,4 @@ Visit **[http://localhost:5000](http://localhost:5000)** (or `http://127.0.0.1:5
 * **Instagram:** [@madebyriwa](https://www.instagram.com/madebyriwa)
 * **LinkedIn:** [Riwa Creatives](https://www.linkedin.com/company/144023065/)
 * **Contact:** [riwacreatives@gmail.com](mailto:riwacreatives@gmail.com)
+

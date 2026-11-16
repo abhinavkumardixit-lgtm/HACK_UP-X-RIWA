@@ -7,7 +7,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://raw.githubusercontent.com/abhinavkumardixit-lgtm/HACK_UP-X-RIWA/main/hackup_banner_1920x557.png</image:loc>
+      <image:loc>https://raw.githubusercontent.com/riwacreatives/HACK_UP-X-RIWA/main/hackup_banner_1920x557.png</image:loc>
       <image:title>Hack Uttar Pradesh 2026 Official Banner</image:title>
       <image:caption>Northern India's Premier Hybrid Hackathon organized by Riwa Creatives</image:caption>
     </image:image>
@@ -43,3 +43,4 @@
     <priority>0.7</priority>
   </url>
 </urlset>
+
